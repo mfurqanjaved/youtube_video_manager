@@ -1,1 +1,1 @@
-[{"name": "chae_or_code", "time": "10"}, {"name": "haha", "time": "50"}, {"name": "koda", "time": "5"}]
+[{"name": "nlp", "time": "14"}, {"name": "inheritance", "time": "8"}, {"name": "oop", "time": "7"}, {"name": "test_summarization", "time": "16"}]

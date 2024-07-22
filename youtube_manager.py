@@ -26,6 +26,7 @@ def add_video(videos):
     name = input("Enter the title of the video: ")
     time = input("Enter the duration of the video: ")
     videos.append({"name": name, "time": time})
+    print("video succesfully added")
     save_data(videos)
 
 
@@ -39,6 +40,7 @@ def update_video(videos):
         name = input("enter the new video name: ")
         time = input("enter the new video duration: ")
         videos[index-1] = {"name": name, "time": time}
+        print("video succesfully updated")
         save_data(videos)
     else:
         print("Invalid index. Please try again")
@@ -50,6 +52,7 @@ def delete_video(videos):
 
     if 1 <= index <= len(videos):
         del videos[index-1]
+        print("video succesfully deleted")
         save_data(videos)
     else:
         print("Invalid index. Please try again")
