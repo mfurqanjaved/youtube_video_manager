@@ -73,16 +73,24 @@ def update_video(videos):
 
 def delete_video(videos):
     list_all_videos(videos)
-    index = int(input("Enter the index of the video you want to delete: "))
+    index_input = input("Enter the index of the video you want to delete or type 'exit' to cancel: ")
+    
+    if index_input.lower() == 'exit':
+        print("Exiting video deletion.")
+        return  # Exit the function early
+    
+    try:
+        index = int(index_input)
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+        return
 
     if 1 <= index <= len(videos):
         del videos[index-1]
-        print("video succesfully deleted")
-        save_data(videos)
+        print("Video successfully deleted.")
     else:
-        print("Invalid index. Please try again")
-
-
+        print("Invalid index. Please try again.")
+    save_data(videos)
 
 
 def main():
