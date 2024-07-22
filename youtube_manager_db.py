@@ -78,7 +78,8 @@ def main():
             add_video(name, time) 
 
         elif choice == "4":
-            cursor.excute("DELETE FROM videos WHERE id = ?", (video_id,))
+            video_id = input("Enter the video ID to delete: ")  # Prompt for video_id here
+            cursor.execute("DELETE FROM videos WHERE id = ?", (video_id,))
 
         elif choice == "5":
             break

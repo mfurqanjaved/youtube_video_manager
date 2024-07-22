@@ -23,27 +23,52 @@ def list_all_videos(videos):
         print("*"*70)
 
 def add_video(videos):
-    name = input("Enter the title of the video: ")
-    time = input("Enter the duration of the video: ")
+    name = input("Enter the title of the video or type 'exit' to cancel: ")
+    if name.lower() == 'exit':
+        print("Exiting video addition.")
+        return  # Exit the function early
+
+    time = input("Enter the duration of the video or type 'exit' to cancel: ")
+    if time.lower() == 'exit':
+        print("Exiting video addition.")
+        return  # Exit the function early
+
     videos.append({"name": name, "time": time})
-    print("video succesfully added")
+    print("Video successfully added.")
     save_data(videos)
 
 
 
 def update_video(videos):
     list_all_videos(videos)
-    index = input("Enter the index of the video you want to update: ")  
-    index = int(index)  
+    index = input("Enter the index of the video you want to update or type 'exit' to cancel: ")
     
+    if index.lower() == 'exit':
+        print("Exiting video update.")
+        return  # Exit the function early
+    
+    try:
+        index = int(index)
+    except ValueError:
+        print("Invalid input. Please enter a number or type 'exit' to cancel.")
+        return
+
     if 1 <= index <= len(videos):
-        name = input("enter the new video name: ")
-        time = input("enter the new video duration: ")
+        name = input("Enter the new video name or type 'exit' to cancel: ")
+        if name.lower() == 'exit':
+            print("Exiting video update.")
+            return  # Exit the function early
+        
+        time = input("Enter the new video duration or type 'exit' to cancel: ")
+        if time.lower() == 'exit':
+            print("Exiting video update.")
+            return  # Exit the function early
+        
         videos[index-1] = {"name": name, "time": time}
-        print("video succesfully updated")
+        print("Video successfully updated.")
         save_data(videos)
     else:
-        print("Invalid index. Please try again")
+        print("Invalid index. Please try again.")
 
 
 def delete_video(videos):
